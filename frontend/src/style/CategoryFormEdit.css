@@ -1,0 +1,74 @@
+
+h1{
+  font-size: 1.1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+.edit-form{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  background: #ecf0f1;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+  width: 50%;
+}
+
+.edit-form .edit-form-name {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  background: #fff;
+  color: #34495e;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
+  outline: none;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.edit-form .edit-form-name :focus {
+  box-shadow: 0 0 0 2px #1abc9c;
+  border: 1.5px solid #1abc9c;
+}
+
+.edit-form .edit-form-name {
+  min-width: 350px;
+  width: 500px;
+  min-height: 40px;
+  resize: vertical;
+}
+
+.edit-form .submit{
+  background: linear-gradient(90deg, #1abc9c 0%, #3498db 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.5rem;
+  font-size: 20px;
+  font-weight: 600;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.edit-form .cancel{
+background: linear-gradient(90deg, #f20808 0%, #bcb70c 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.5rem;
+  font-size: 20px;
+  height: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+
