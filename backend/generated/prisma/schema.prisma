@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  // Atributtes
+  // PK(id) autoincrementable
+  id   Int    @id @default(autoincrement())
+  // Name of the category unique and String limited to 60 characters
+  name String @unique @db.VarChar(60)
+
+  // Mapping attributes change createdAt to created_at
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // add Reference to the Post model to validate the relationship one to many
+  posts Post[]
+
+  // Mapeo de atributos
+  @@map("categories")
+}
+
+model Post {
+  // Atributtes
+  // PK(id) autoincrementable
+  id      Int     @id @default(autoincrement())
+  // Title of the post unique and String limited to 100 characters
+  title   String  @unique @db.VarChar(100)
+  // Content of the post
+  content String? @db.Text
+
+  // Mapping attributes change createdAt to created_at
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // add FK categoryId represents the relationship one to many with category
+  categoryId Int      @map("category_id")
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  @@map("posts")
+}

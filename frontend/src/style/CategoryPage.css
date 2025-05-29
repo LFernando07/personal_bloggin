@@ -1,0 +1,232 @@
+
+/* Resetea herencias y establece el layout principal */
+.category-container {
+  all: unset;
+  box-sizing: border-box;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Header de la categoría */
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 3vw 1.5rem 3vw;
+  background: linear-gradient(90deg, #1abc9c 0%, #3498db 100%);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.category-header .category-title{
+  all:unset;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-header .category-title h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #fff 30%, #e1e8ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-header .category-title .icon-note{
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 1.2rem;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  scale: 1.2;
+}
+
+.category-header .category-title .icon-note:hover {
+  color: #f7ff64;
+  transform: translateY(-2px) scale(1.15);
+}
+
+/* Botón para agregar nota */
+.add-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  color: #3498db;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  outline: none;
+}
+
+.add-note:hover {
+  background: #3498db;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.add-note .icon-plus {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+
+/* Sección de notas */
+.notes-section {
+  flex: 1;
+  padding: 2rem 3vw;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+p {
+  justify-content: center;
+  align-items: center;
+  position: unset;
+  color: #fff;
+}
+
+/* Nota individual */
+.note-item {
+  background: #ffffffca;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  align-items: start; /* <-- esto es clave para que se expanda */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+
+.note-title {
+  grid-column: 1 / 2;
+  color: #035fbb;
+  font-weight: bold;
+}
+
+.note-content {
+  grid-column: 2 / 3;
+  text-align: left;
+  display: -webkit-box;        /* Define un contenedor flexible */
+  -webkit-box-orient: vertical; /* Orienta el contenido en vertical */
+  overflow: hidden;            /* Oculta el texto que se desborda */
+  text-overflow: ellipsis;     /* Agrega "..." al final del texto cortado */
+  line-clamp: 1;
+  -webkit-line-clamp: 1;       /* Limita el texto a 3 líneas */
+  white-space: normal;
+}
+
+.note-content-expand{
+  grid-column: 2 / 3;
+  text-align: justify;
+  white-space: pre-wrap; /* Respeta saltos de línea */
+  overflow: visible;
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+.note-date {
+  grid-column: 3 / 4;
+  color: #414345;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  column-count: 2;
+  column-gap: 1.5rem;
+  word-break: break-word;
+}
+
+.controls {
+  grid-column: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.note-item > p {
+  color: #1abc9c;
+}
+
+.note-item span p{
+  all: unset;
+  white-space: nowrap;  /* Evita saltos de línea */
+  overflow: hidden;     /* Oculta el texto que se desborda */
+}
+
+.note-item .date{
+    font-size: 14px;
+}
+
+.note-item .icon-note {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 1.2rem;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  scale: 1.2;
+}
+
+
+.note-item .icon-note:first-child{
+  color: #3498db;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+}
+
+.note-item .icon-note:first-child:hover {
+  color: #2980b9;
+  transform: translateY(-2px) scale(1.15);
+}
+
+.note-item .icon-note:last-child {
+  color: #e74c3c;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+}
+
+.note-item .icon-note:nth-child(2){
+  color: #90C67C;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+
+}
+.note-item .icon-note:nth-child(2):hover {
+  color: #f39c12;
+  transform: scale(1.15) rotate(-10deg);
+}
+
+.note-item .icon-note:last-child:hover {
+  color: #c0392b;
+  transform: scale(1.15) rotate(-10deg);
+}
